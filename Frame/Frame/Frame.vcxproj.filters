@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="99.Defalut">
+      <UniqueIdentifier>{636392fe-9a58-4686-ac52-5a74eadc2932}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98Headers">
+      <UniqueIdentifier>{6b74d2f6-daf3-4934-a3b2-606b5e977e5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.WinMain">
+      <UniqueIdentifier>{aff9b9b2-be2b-4ea2-a2b7-562d2a71cd31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.MainGame">
+      <UniqueIdentifier>{69eac2b0-04d3-43aa-819b-6162dacf77b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10.GameObject">
+      <UniqueIdentifier>{d5856499-b2af-47c2-bc3e-e7cbe06ccd34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="90.Manager">
+      <UniqueIdentifier>{afe37c37-13cb-45fa-92e6-afd0295192e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10.GameObject\01.Player">
+      <UniqueIdentifier>{aa556725-53fe-4b97-b6de-d290f46cb321}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10.GameObject\02.Monster">
+      <UniqueIdentifier>{85c73d5c-4cab-4753-b2ce-db07f6b6a414}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10.GameObject\03.Bullet">
+      <UniqueIdentifier>{c6f8c7d0-9f4d-4feb-ad81-758166ccd1c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10.GameObject\04.Shield">
+      <UniqueIdentifier>{64aaf357-876b-4e76-be9e-f684f95ae2fa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>99.Defalut</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>99.Defalut</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>98Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Typedef.h">
+      <Filter>98Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>98Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>10.GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionMgr.h">
+      <Filter>90.Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="DetectMgr.h">
+      <Filter>90.Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>98Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Frame.h">
+      <Filter>00.WinMain</Filter>
+    </ClInclude>
+    <ClInclude Include="Maingame.h">
+      <Filter>01.MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>98Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern.h">
+      <Filter>98Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Function.h">
+      <Filter>98Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>10.GameObject\03.Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>10.GameObject\02.Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>10.GameObject\01.Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Shield.h">
+      <Filter>10.GameObject\04.Shield</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectFactory.h">
+      <Filter>98Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>99.Defalut</Filter>
+    </ClCompile>
+    <ClCompile Include="Frame.cpp">
+      <Filter>00.WinMain</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>10.GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionMgr.cpp">
+      <Filter>90.Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="DetectMgr.cpp">
+      <Filter>90.Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Maingame.cpp">
+      <Filter>01.MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>10.GameObject\03.Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>10.GameObject\02.Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>10.GameObject\01.Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Shield.cpp">
+      <Filter>10.GameObject\04.Shield</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>99.Defalut</Filter>
+    </Image>
+    <Image Include="Frame.ico">
+      <Filter>99.Defalut</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt">
+      <Filter>99.Defalut</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Frame.rc">
+      <Filter>99.Defalut</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
