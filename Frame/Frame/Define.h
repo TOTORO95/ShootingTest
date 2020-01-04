@@ -9,7 +9,7 @@
 #define DEAD_OBJ 1
 
 #define PI 3.141592f
-
+#define G 9.8f
 #define NULL_CHECK(ptr) if(nullptr == (ptr)) return;
 #define NULL_CHECK_RETURN(ptr, val) if(nullptr == (ptr)) return val;
 

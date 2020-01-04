@@ -74,26 +74,26 @@ void CPlayer::KeyInput()
 		m_tInfo.fX += m_fSpeed;
 	if (GetAsyncKeyState(VK_UP) & 0x8000)
 	{
-		
+		m_tInfo.fY -= m_fSpeed;
 		//m_tInfo.fX += cosf(m_fAngle * PI / 180.f) * m_fSpeed;
 		//m_tInfo.fY -= sinf(m_fAngle * PI / 180.f) * m_fSpeed;
 	}
 	if (GetAsyncKeyState(VK_DOWN) & 0x8000)
 	{
+		m_tInfo.fY+= m_fSpeed;
+
 		//m_tInfo.fX += cosf(m_fAngle * PI / 180.f) * -m_fSpeed;
 		//m_tInfo.fY -= sinf(m_fAngle * PI / 180.f) * -m_fSpeed;
 	}
 
 	if (GetAsyncKeyState(VK_SPACE) & 0x8000)//점프
 	{
-		//m_DwCurTime = GetTickCount();
-		//if (m_DwCurTime - m_DwOldTime >= 100)
-		//{
+		m_DwCurTime = GetTickCount();//TODO: 요기만드는중
+		
+		if (m_DwCurTime - m_DwOldTime >= 10)
+		{
 
-		//	NULL_CHECK(m_pBulletList);
-		//	m_pBulletList->push_back(CObjectFactory<CBullet>::CreateObject(m_fGunX, m_fGunY, m_fAngle, m_Target, STRAIGHT));
-		//	m_DwOldTime = m_DwCurTime;
-		//}
+		}
 	}
 	if (GetAsyncKeyState('A') & 0x8000)
 	{
