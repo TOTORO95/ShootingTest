@@ -84,11 +84,14 @@ void CCollisionMgr::CollsionLine(OBJECT_LIST & dstList, OBJECT_LIST & srcList)
 	{
 		for (auto pSrc : srcList)
 		{
-			if( pDest->GetInfo().fX>= pSrc->GetAreaInfo().ptStart.x 
-				&& pDest->GetInfo().fX <= pSrc->GetAreaInfo().ptEnd.x)
+			float fx = pSrc->GetAreaInfo().ptStart.x > pSrc->GetAreaInfo().ptEnd.x ? pSrc->GetAreaInfo().ptStart.x : pSrc->GetAreaInfo().ptEnd.x;
+			float fx2 = pSrc->GetAreaInfo().ptStart.x > pSrc->GetAreaInfo().ptEnd.x ?  pSrc->GetAreaInfo().ptEnd.x: pSrc->GetAreaInfo().ptStart.x;
+
+			if (pDest->GetInfo().fX <= fx
+				&& pDest->GetInfo().fX >=fx2 )
 			{
-	
 				pDest->SetFlatY(IntersectLine(pDest, pSrc));
+	
 				//if (!pDest->GetIsJump())
 				//{
 				//	cout << "수직충돌" << endl;

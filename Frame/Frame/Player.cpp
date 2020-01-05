@@ -66,7 +66,7 @@ int CPlayer::Update()
 	else
 	{
 		
-		m_tInfo.fY = m_fFlatY;
+		m_tInfo.fY = m_fFlatY-m_tInfo.fCY*0.5;
 	}
 		
 	// Y= v*sin90 -g*t2*0.5
