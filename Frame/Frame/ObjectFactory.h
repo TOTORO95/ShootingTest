@@ -44,6 +44,15 @@ public:
 
 		return pObject;
 	}
+	static CGameObject* CreateObject(LONG startx, LONG starty, LONG endx, LONG endy)
+	{
+		CGameObject* pObject = new T(startx,starty,endx,endy);
+		pObject->Initialize();
+
+		return pObject;
+	}
+
+
 };
 
 #define __OBJECT_FACTORY_H__

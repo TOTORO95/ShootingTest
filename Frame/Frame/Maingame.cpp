@@ -2,7 +2,7 @@
 #include "Maingame.h"
 #include "Player.h"
 #include "Monster.h"
-
+#include "Line.h"
 CMaingame::CMaingame()
 {
 }
@@ -47,7 +47,6 @@ void CMaingame::Update()
 		for (; iter_begin != iter_end; )
 		{
 			int iEvent = (*iter_begin)->Update();
-
 			if (DEAD_OBJ == iEvent)
 			{
 				SafeDelete((*iter_begin));
@@ -57,7 +56,14 @@ void CMaingame::Update()
 				++iter_begin;
 		}
 	}
+	
+	if (GetAsyncKeyState(VK_RBUTTON)&0x0001)
+	{
+			m_ObjectList[LINE].push_back(CObjectFactory<CLine>::CreateObject(g_tArea.ptStart.x, g_tArea.ptStart.y, g_tArea.ptEnd.x, g_tArea.ptEnd.y));
 
+	}
+	
+	CCollisionMgr::CollsionLine(m_ObjectList[PLAYER], m_ObjectList[LINE]);
 	//CCollisionMgr::CollisionRect(m_ObjectList[BULLET], m_ObjectList[MONSTER]);
 	//CCollisionMgr::CollisionSphere(m_ObjectList[SHIELD], m_ObjectList[BULLET]);
 	//CCollisionMgr::CollisionSphere(m_ObjectList[BULLET], m_ObjectList[MONSTER]);
@@ -79,22 +85,19 @@ void CMaingame::Render()
 			(*iter_begin)->Render(m_hDC);
 	}	
 
+
+
 	// 텍스트 출력.
-	//TCHAR szBuf[64] = L"";
-	//swprintf_s(szBuf, L"Bullet size: %d", m_ObjectList[BULLET].size());
+	TCHAR szBuf[64] = L"";
+	swprintf_s(szBuf, L"Mouse Pos X: %d Y: %d", g_tArea.ptStart.x, g_tArea.ptStart.y);
+	TextOut(m_hDC, 500, 100, szBuf, lstrlen(szBuf));
 
-	//TextOut: 지정한 좌표로부터 텍스트 출력
-	//TextOut(m_hDC, 100, 100, szBuf, lstrlen(szBuf));
-
-	//DrawText: 지정한 사각형 영역 안에 텍스트 출력
-	//RECT rc = { 100, 100, 200, 200 };
-	//DrawText(m_hDC, szBuf, lstrlen(szBuf), &rc, DT_NOCLIP);
 
 }
 
 void CMaingame::Release()
 {
-	ReleaseDC(g_hWnd, m_hDC);	
+	//ReleaseDC(g_hWnd, m_hDC);	
 
 	for (int i = 0; i < OBJECT_END; ++i)
 	{
