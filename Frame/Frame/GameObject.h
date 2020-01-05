@@ -12,6 +12,10 @@ public:
 	void SetTarget(CGameObject* val) { m_Target = val; }
 	bool GetIsDead() const { return m_bIsDead; }
 	void SetIsDead(bool val) { m_bIsDead = val; }
+	OBJECT_TYPE GetObjType() const { return m_ObjType; }
+	void SetObjType(OBJECT_TYPE val) { m_ObjType = val; }
+	TagArea GetAreaInfo() const { return m_tAreaInfo; }
+	void SetAreaInfo(TagArea val) { m_tAreaInfo = val; }
 public:
 	const INFO& GetInfo() const;
 	const RECT& GetRect() const;
@@ -24,7 +28,7 @@ public:
 	virtual void Initialize() = 0;
 	virtual int Update() = 0;
 	virtual void Render(HDC hDC) = 0;
-
+	
 protected:
 	virtual void Release() = 0;	
 
@@ -37,9 +41,11 @@ protected:
 	void UpdateRect();
 
 protected:
+	TagArea m_tAreaInfo;
 	DWORD m_DwOldTime = GetTickCount();
 	DWORD m_DwCurTime = 0;
 
+	OBJECT_TYPE m_ObjType;
 	INFO	m_tInfo;
 	CGameObject* m_Target;
 	RECT	m_tRect;

@@ -31,6 +31,9 @@
     <Filter Include="10.GameObject\04.Shield">
       <UniqueIdentifier>{64aaf357-876b-4e76-be9e-f684f95ae2fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="10.GameObject\05.Line">
+      <UniqueIdentifier>{94b74fc5-8566-4a38-8729-82646997ca38}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Resource.h">
@@ -90,6 +93,7 @@
     <ClInclude Include="ObjectFactory.h">
       <Filter>98Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Line.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -122,6 +126,7 @@
     <ClCompile Include="Shield.cpp">
       <Filter>10.GameObject\04.Shield</Filter>
     </ClCompile>
+    <ClCompile Include="Line.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="small.ico">

@@ -33,7 +33,7 @@ void CPlayer::Initialize()
 	m_tInfo.fY = 300.f;
 	m_tInfo.fCX = 50.f;
 	m_tInfo.fCY = 50.f;
-
+	m_ObjType = PLAYER;
 	m_fSpeed = 5.f;
 	m_fAngle = 90.f;	// Degree
 	m_fGunLength = 100.f;

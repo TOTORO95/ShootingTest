@@ -164,17 +164,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			g_tArea.bStart = true;
 			g_tArea.ptStart.x = LOWORD(lParam);
 			g_tArea.ptStart.y = HIWORD(lParam);
-
 		}
 	}
 	break;
-	case WM_LBUTTONUP:
+	case WM_RBUTTONDOWN:
 	{
 		if (g_tArea.bStart)
 		{
-			g_tArea.bStart = false;
 			g_tArea.ptEnd.x = LOWORD(lParam);
 			g_tArea.ptEnd.y = HIWORD(lParam);
+			g_tArea.bStart = false;
 		}
 
 	}

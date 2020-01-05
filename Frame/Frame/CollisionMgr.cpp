@@ -78,12 +78,35 @@ void CCollisionMgr::CollisionSphere(OBJECT_LIST& dstList, OBJECT_LIST& srcList)
 	}
 }
 
+void CCollisionMgr::CollsionLine(OBJECT_LIST & dstList, OBJECT_LIST & srcList)
+{
+	for (auto pDest : dstList)
+	{
+		for (auto pSrc : srcList)
+		{
+			if( pDest->GetInfo().fX>= pSrc->GetAreaInfo().ptStart.x 
+				&& pDest->GetInfo().fX <= pSrc->GetAreaInfo().ptEnd.x)
+			{
+				pDest->SetPos(pDest->GetInfo().fX,((pSrc->GetAreaInfo().ptEnd.y - pSrc->GetAreaInfo().ptStart.y)*(pDest->GetInfo().fX - pSrc->GetAreaInfo().ptStart.x)/(pSrc->GetAreaInfo().ptEnd.x - pSrc->GetAreaInfo().ptStart.x)+ pSrc->GetAreaInfo().ptStart.y));
+			}
+			if (pDest->GetInfo().fY >= pSrc->GetAreaInfo().ptStart.y && pDest->GetInfo().fY <= pSrc->GetAreaInfo().ptEnd.y)
+			{
+				cout << "수직충돌" << endl;
+			
+			}
+		}
+	}
+
+
+}
+
 bool CCollisionMgr::IntersectSphere(CGameObject* pDest, CGameObject* pSource)
 {
 	// 원충돌
 	// 두 원의 반지름 합을 구한다. r1 + r2
 	// 두 원의 중점 간 거리를 구한다. d
 	// r1 + r2 >= d 조건을 만족하면 TRUE
+
 
 	float r1 = pDest->GetInfo().fCX * 0.5f;
 	float r2 = pSource->GetInfo().fCX * 0.5f;

@@ -150,6 +150,7 @@
     <ClInclude Include="Frame.h" />
     <ClInclude Include="Function.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Line.h" />
     <ClInclude Include="Maingame.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="ObjectFactory.h" />
@@ -167,6 +168,7 @@
     <ClCompile Include="DetectMgr.cpp" />
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Line.cpp" />
     <ClCompile Include="Maingame.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Player.cpp" />
