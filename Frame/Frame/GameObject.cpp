@@ -50,12 +50,13 @@ void CGameObject::CalcAngle(INFO _target)
 	float fy = m_tInfo.fY - _target.fY;
 	float fr = sqrtf(fx*fx + fy*fy);
 	m_fRadian =acosf(fx/fr);
-	//m_fAngle = asinf(fy / fr);
 }
 
 float CGameObject::Lerp(float p1, float p2, float ft)
 {
-	return (1 - ft)*p1 + ft*p2;  //0.5  1
+	return float(p1 + ((float)(p2 - p1) * ft));
+
+
 }
 
 void CGameObject::UpdateRect()

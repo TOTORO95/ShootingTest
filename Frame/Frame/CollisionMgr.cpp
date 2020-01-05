@@ -87,12 +87,13 @@ void CCollisionMgr::CollsionLine(OBJECT_LIST & dstList, OBJECT_LIST & srcList)
 			if( pDest->GetInfo().fX>= pSrc->GetAreaInfo().ptStart.x 
 				&& pDest->GetInfo().fX <= pSrc->GetAreaInfo().ptEnd.x)
 			{
-				pDest->SetPos(pDest->GetInfo().fX,((pSrc->GetAreaInfo().ptEnd.y - pSrc->GetAreaInfo().ptStart.y)*(pDest->GetInfo().fX - pSrc->GetAreaInfo().ptStart.x)/(pSrc->GetAreaInfo().ptEnd.x - pSrc->GetAreaInfo().ptStart.x)+ pSrc->GetAreaInfo().ptStart.y));
-			}
-			if (pDest->GetInfo().fY >= pSrc->GetAreaInfo().ptStart.y && pDest->GetInfo().fY <= pSrc->GetAreaInfo().ptEnd.y)
-			{
-				cout << "荐流面倒" << endl;
-			
+	
+				pDest->SetFlatY(IntersectLine(pDest, pSrc));
+				//if (!pDest->GetIsJump())
+				//{
+				//	cout << "荐流面倒" << endl;
+				//	pDest->SetPos(pDest->GetInfo().fX, (IntersectLine(pDest, pSrc)));
+				//}
 			}
 		}
 	}
@@ -144,4 +145,12 @@ bool CCollisionMgr::IntersectRectEx(CGameObject* pDest, CGameObject* pSource, fl
 	}
 
 	return false;
+}
+
+float CCollisionMgr::IntersectLine(CGameObject * pDest, CGameObject * pSrc)
+{
+
+	return ((pSrc->GetAreaInfo().ptEnd.y - pSrc->GetAreaInfo().ptStart.y)*
+		(pDest->GetInfo().fX - pSrc->GetAreaInfo().ptStart.x) / 
+		(pSrc->GetAreaInfo().ptEnd.x - pSrc->GetAreaInfo().ptStart.x) + pSrc->GetAreaInfo().ptStart.y) ;
 }

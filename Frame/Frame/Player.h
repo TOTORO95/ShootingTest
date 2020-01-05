@@ -26,7 +26,8 @@ private:
 	float			m_fGunX;	// 포신 끝점 X
 	float			m_fGunY;	// 포신 끝점 Y
 	float			m_fGunLength; // 포신 길이
-
+	float			m_fNum;
+	float           m_fJumpPos;
 	OBJECT_LIST*	m_pBulletList;
 	OBJECT_LIST*	m_pShieldList;
 };

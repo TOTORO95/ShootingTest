@@ -16,6 +16,10 @@ public:
 	void SetObjType(OBJECT_TYPE val) { m_ObjType = val; }
 	TagArea GetAreaInfo() const { return m_tAreaInfo; }
 	void SetAreaInfo(TagArea val) { m_tAreaInfo = val; }
+	bool GetIsJump() const { return m_bIsJump; }
+	void SetIsJump(bool val) { m_bIsJump = val; }
+	float GetFlatY() const { return m_fFlatY; }
+	void SetFlatY(float val) { m_fFlatY = val; }
 public:
 	const INFO& GetInfo() const;
 	const RECT& GetRect() const;
@@ -36,7 +40,7 @@ public:
 	bool IsDead();
 	void CalcAngle(INFO _target);
 	float Lerp(float p1, float p2, float d1);
-
+	
 protected:
 	void UpdateRect();
 
@@ -49,11 +53,13 @@ protected:
 	INFO	m_tInfo;
 	CGameObject* m_Target;
 	RECT	m_tRect;
-
+	bool	m_bIsJump;
 	bool	m_bIsDead;
 	float	m_fSpeed;
 	float	m_fAngle;
 	float	m_fRadian;
+	float	m_fFlatY;
+
 };
 
 #define __GAMEOBJECT_H__

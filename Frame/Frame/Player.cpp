@@ -37,17 +37,40 @@ void CPlayer::Initialize()
 	m_fSpeed = 5.f;
 	m_fAngle = 90.f;	// Degree
 	m_fGunLength = 100.f;
+	m_bIsJump = false;
+	m_fNum = 0;
+	m_fFlatY=WINCY;
 }
 
 int CPlayer::Update()
 {
 	KeyInput();
-
+	m_fNum+=0.1f;
 	// 180도 -> pi라디안
 	// 1도 -> pi / 180 라디안
 	// 1라디안 -> 180 / pi 도
 	m_fGunX = m_tInfo.fX + cosf(m_fAngle * PI / 180.f) * m_fGunLength;
 	m_fGunY = m_tInfo.fY - sinf(m_fAngle * PI / 180.f) * m_fGunLength;
+
+	if (m_bIsJump)
+	{
+		//m_tInfo.fY = Lerp(m_tInfo.fY, m_tInfo.fY-(15 - G*m_fNum*m_fNum*0.5), m_fNum / 100);
+		
+		m_tInfo.fY -= (15 - G*m_fNum*m_fNum*0.5);
+		if (m_tInfo.fY >= m_fFlatY|| m_tInfo.fY>=m_fFlatY)
+		{
+			m_bIsJump = false;;
+		}
+
+	}
+	else
+	{
+		
+		m_tInfo.fY = m_fFlatY;
+	}
+		
+	// Y= v*sin90 -g*t2*0.5
+
 
 	return NO_EVENT;
 }
@@ -88,9 +111,17 @@ void CPlayer::KeyInput()
 
 	if (GetAsyncKeyState(VK_SPACE) & 0x8000)//점프
 	{
-		m_DwCurTime = GetTickCount();//TODO: 요기만드는중
-		m_tInfo.fY += m_fSpeed*0.01;
+		m_fNum=0;
+		m_DwCurTime = GetTickCount();
+		if (m_DwCurTime - m_DwOldTime >= 200)
+		{
+			cout << "점프" << m_tInfo.fY << endl;
+			m_bIsJump = true;
+			m_fJumpPos = m_tInfo.fY;
+			m_DwOldTime = m_DwCurTime;
+		}////m_tInfo.fY -= m_fSpeed;
 	}
+
 	if (GetAsyncKeyState('A') & 0x8000)
 	{
 		m_DwCurTime = GetTickCount();

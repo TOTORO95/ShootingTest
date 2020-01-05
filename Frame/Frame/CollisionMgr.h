@@ -14,7 +14,7 @@ public:
 private:
 	static bool IntersectSphere(CGameObject* pDest, CGameObject* pSource);
 	static bool IntersectRectEx(CGameObject* pDest, CGameObject* pSource, float* pMoveX, float* pMoveY);
-
+	static float IntersectLine(CGameObject* pDest, CGameObject* pSource);
 	
 };
 
