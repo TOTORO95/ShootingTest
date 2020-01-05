@@ -89,11 +89,7 @@ void CPlayer::KeyInput()
 	if (GetAsyncKeyState(VK_SPACE) & 0x8000)//점프
 	{
 		m_DwCurTime = GetTickCount();//TODO: 요기만드는중
-		
-		if (m_DwCurTime - m_DwOldTime >= 10)
-		{
-
-		}
+		m_tInfo.fY += m_fSpeed*0.01;
 	}
 	if (GetAsyncKeyState('A') & 0x8000)
 	{
